@@ -2,7 +2,7 @@
 return { 
 	"rebelot/kanagawa.nvim",
 	lazy = false,
-	priority = 990,
+	priority = 920,
 	config = function()
 		vim.cmd("colorscheme kanagawa-dragon")
 		end
