@@ -20,6 +20,7 @@ require('config.highlight')
 
 
 local plugins = "plugins"
+local lsp = 'plugins.lsp'
 
 local opts = {
 	defaults = {
@@ -46,4 +47,5 @@ local opts = {
 	},
 }
 
-require('lazy').setup(plugins)
+require('lazy').setup({{import = plugins } , { import = lsp }}, opts)
+

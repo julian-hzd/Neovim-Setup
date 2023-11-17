@@ -1,6 +1,6 @@
 
 local config = function()
-  local theme = require("lualine.themes.rose-pine")
+  local theme = require("lualine.themes.kanagawa")
   theme.normal.c.bg = nil
   require('lualine').setup{
     options = {
