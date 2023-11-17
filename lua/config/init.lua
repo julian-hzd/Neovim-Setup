@@ -1,4 +1,3 @@
-
 -- Package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -13,39 +12,37 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('config.globals')
-require('config.options')
-require('config.keymaps')
-require('config.highlight')
+require 'config.globals'
+require 'config.options'
+require 'config.keymaps'
+require 'config.highlight'
 
-
-local plugins = "plugins"
+local plugins = 'plugins'
 local lsp = 'plugins.lsp'
 
 local opts = {
-	defaults = {
-		lazy = true,
-	},
-	install = {
-		colorscheme = { "kanagawa" },
-	},
-	rtp = {
-		disabled_plugins = {
-			"gzip",
-			"matchit",
-			"matchparen",
-			"netrw",
-			"netrwPlugin",
-			"tarPlugin",
-			"tohtml",
-			"tutor",
-			"zipPlugin",
-		},
-	},
-	change_detection = {
-		notify = false,
-	},
+  defaults = {
+    lazy = true,
+  },
+  install = {
+    colorscheme = { 'kanagawa' },
+  },
+  rtp = {
+    disabled_plugins = {
+      'gzip',
+      'matchit',
+      'matchparen',
+      'netrw',
+      'netrwPlugin',
+      'tarPlugin',
+      'tohtml',
+      'tutor',
+      'zipPlugin',
+    },
+  },
+  change_detection = {
+    notify = false,
+  },
 }
 
-require('lazy').setup({{import = plugins } , { import = lsp }}, opts)
-
+require('lazy').setup({ { import = plugins }, { import = lsp } }, opts)
