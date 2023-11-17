@@ -83,23 +83,26 @@ local config = function()
 		filetypes = { "solidity" },
 	})
 
-	-- typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
-	lspconfig.emmet_ls.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		filetypes = {
-			"typescriptreact",
-			"javascriptreact",
-			"javascript",
-			"css",
-			"sass",
-			"scss",
-			"less",
-			"svelte",
-			"vue",
-			"html",
-		},
-	})
+	-- -- typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
+	-- lspconfig.emmet_ls.setup({
+	-- 	capabilities = capabilities,
+	-- 	on_attach = on_attach,
+    -- root_dir = function(fname)
+        -- return vim.loop.cwd()
+      -- end;
+	-- 	filetypes = {
+	-- 		"typescriptreact",
+	-- 		"javascriptreact",
+	-- 		"javascript",
+	-- 		"css",
+	-- 		"sass",
+	-- 		"scss",
+	-- 		"less",
+	-- 		"svelte",
+	-- 		"vue",
+	-- 		"html",
+	-- 	},
+	-- })
 
 	-- docker
 	lspconfig.dockerls.setup({
@@ -199,96 +202,3 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 }
--- local servers = {
---   -- clangd = {},
---   -- gopls = {},
---   pyright = { filetypes = { 'python' } },
-
---   quick_lint_js = filetypes_js,
---   tsserver = filetypes_js,
---   biome = filetypes_js,
---   vtsls = filetypes_js,
-
---   cssls = {filetypes = {'CSS'} },
---   cssmodules_ls = {filetypes = {'CSS'} },
---   unocss = {filetypes = {'CSS'} },
-
---   -- rust_analyzer = {},
---   -- tsserver = {},
---    html = { filetypes = { 'html', 'twig', 'hbs'} },
-
---   lua_ls = {
---     Lua = {
---       workspace = { checkThirdParty = false },
---       telemetry = { enable = false },
---     },
---   },
--- }
-
--- local config = function()
---   require('mason').setup()
---   require('mason-lspconfig').setup{
---     ensure_installed = vim.tbl_keys(servers),
-
---     handlers = {
---       function(server_name)
---         require('lspconfig')[server_name].setup {
---           capabilities = capabilities,
---           on_attach = on_attach,
---           settings = servers[server_name],
---           filetypes = (servers[server_name] or {}).filetypes,
---         }
---       end,
---     }
---   }
--- end
-
--- return{
---     'neovim/nvim-lspconfig',
---     dependencies = {
---       -- Automatically install LSPs to stdpath for neovim
---       'williamboman/mason.nvim',
---       'williamboman/mason-lspconfig.nvim',
-
---       -- Useful status updates for LSP
---       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
---       { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-
---       -- Additional lua configuration, makes nvim stuff amazing!
---       'folke/neodev.nvim',
---     },
---     config = config
--- }
-
-
--- -- return {
--- --   'williamboman/mason-lspconfig.nvim',
--- --   config= config,
--- --   event = "BufReadPre",
--- --   dependencies = "williamboman/mason.nvim"
--- -- }
-
--- -- -- Setup neovim lua configuration
--- -- -- require('neodev').setup()
-
--- -- -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
--- -- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
--- -- -- Ensure the servers above are installed
--- -- local mason_lspconfig = require 'mason-lspconfig'
-
--- -- mason_lspconfig.setup {
--- --   ensure_installed = vim.tbl_keys(servers),
--- -- }
-
--- -- mason_lspconfig.setup_handlers {
--- --   function(server_name)
--- --     require('lspconfig')[server_name].setup {
--- --       capabilities = capabilities,
--- --       on_attach = on_attach,
--- --       settings = servers[server_name],
--- --       filetypes = (servers[server_name] or {}).filetypes,
--- --     }
--- --   end,
--- -- }
