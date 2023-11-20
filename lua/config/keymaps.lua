@@ -3,8 +3,8 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 --  Directory Navigation
-keymap.set('n', '<leader>f', ':NreeFocus<CR>', opts)
-keymap.set('n', '<leader>m', ':NreeToggle<CR>', opts)
+keymap.set('n', '<leader>f', ':NvimTreeFocus<CR>', opts)
+keymap.set('n', '<leader>m', ':NvimTreeToggle<CR>', opts)
 
 -- Pane and Window Navigation
 keymap.set('n', '<C-h>', '<C-w>h', opts) -- Navigate Left
