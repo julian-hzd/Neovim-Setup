@@ -1,5 +1,6 @@
-local keymap = vim.keymap
+local mapkey = require('util.keymapper').mapkey
 
+local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 --  Directory Navigation
@@ -7,10 +8,20 @@ keymap.set('n', '<leader>f', ':NvimTreeFocus<CR>', opts)
 keymap.set('n', '<leader>m', ':NvimTreeToggle<CR>', opts)
 
 -- Pane and Window Navigation
-keymap.set('n', '<C-h>', '<C-w>h', opts) -- Navigate Left
-keymap.set('n', '<C-j>', '<C-w>j', opts) -- Navigate Down
-keymap.set('n', '<C-k>', '<C-w>k', opts) -- Navigate Up
-keymap.set('n', '<C-l>', '<C-w>l', opts) -- Navigate Right
+mapkey('<C-h>', '<C-w>h', 'n') -- Navigate Left
+mapkey('<C-j>', '<C-w>j', 'n') -- Navigate Down
+mapkey('<C-k>', '<C-w>k', 'n') -- Navigate Up
+mapkey('<C-l>', '<C-w>l', 'n') -- Navigate Right
+
+mapkey('<C-h>', 'wincmd h', 't') -- Navigate Left
+mapkey('<C-j>', 'wincmd j', 't') -- Navigate Down
+mapkey('<C-k>', 'wincmd k', 't') -- Navigate Up
+mapkey('<C-l>', 'wincmd l', 't') -- Navigate Right
+
+mapkey('<C-h>', 'TmuxNavigateLeft', 'n') -- Navigate Left
+mapkey('<C-j>', 'TmuxNavigateDown', 'n') -- Navigate Down
+mapkey('<C-k>', 'TmuxNavigateUp', 'n') -- Navigate Up
+mapkey('<C-l>', 'TmuxNavigateRight', 'n') -- Navigate Right
 
 -- Window Management
 keymap.set('n', '<leader>sv', ':vsplit<CR>', opts) -- Split Vertically
@@ -39,6 +50,9 @@ keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 
 --  Replaces word that cursor is on
 keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Show Full File-Path
+mapkey('<leader>pa', "echo expand('%:p')", 'n') -- Show Full File Path
 
 --  Other
 keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
