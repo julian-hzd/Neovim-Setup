@@ -24,7 +24,7 @@ local opts = {
     lazy = true,
   },
   install = {
-    colorscheme = { 'kanagawa' },
+    colorscheme = { 'catppuccin' },
   },
   rtp = {
     disabled_plugins = {
@@ -45,3 +45,4 @@ local opts = {
 }
 
 require('lazy').setup({ { import = plugins }, { import = lsp } }, opts)
+

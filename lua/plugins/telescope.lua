@@ -39,7 +39,7 @@ local keys = function()
     keymap.set('n', '<leader>sd', tb.diagnostics, { desc = '[S]earch [D]iagnostics' }),
     keymap.set('n', '<leader>sr', tb.resume, { desc = '[S]earch [R]esume' }),
   }
-end 
+end
 
 -- Fuzzy Finder (files, lsp, etc)
 return {

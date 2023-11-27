@@ -9,6 +9,13 @@ return {
 
     vim.opt.completeopt = 'menu,menuone,noselect'
 
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+    cmp.event:on(
+      'confirm_done',
+      cmp_autopairs.on_confirm_done()
+    )
+
     cmp.setup {
       snippet = {
         expand = function(args)
@@ -21,15 +28,15 @@ return {
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-ff>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(), -- show completion suggestions
-        ['<C-e>'] = cmp.mapping.abort(), -- close completion window
-        ['<CR>'] = cmp.mapping.confirm { select = false },
+        ['<C-e>'] = cmp.mapping.abort(),        -- close completion window
+        ['<CR>'] = cmp.mapping.confirm { select = true },
       },
       -- sources for autocompletion
       sources = cmp.config.sources {
         { name = 'nvim_lsp' }, -- lsp
-        { name = 'luasnip' }, -- snippets
-        { name = 'buffer' }, -- text within current buffer
-        { name = 'path' }, -- file system paths
+        { name = 'luasnip' },  -- snippets
+        { name = 'buffer' },   -- text within current buffer
+        { name = 'path' },     -- file system paths
       },
       -- configure lspkind for vs-code like icons
       formatting = {
