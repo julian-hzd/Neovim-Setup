@@ -2,9 +2,11 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
+    'williamboman/mason.nvim',
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
+  lazy=false,
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
@@ -86,14 +88,14 @@ return {
     lspconfig["cssls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = {"css"}
+      filetypes = { "css" }
     })
 
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+      filetypes = { "html", "typescriptreact", "javascriptreact", "css" },
     })
 
     -- configure python server
@@ -108,6 +110,7 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = {"javascriptreact"}
+
     })
 
     -- configure lua server (with special settings)

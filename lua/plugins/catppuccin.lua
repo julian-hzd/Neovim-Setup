@@ -2,11 +2,11 @@ return {
   "catppuccin/nvim",
   lazy = false,
   name = "catppuccin",
-  priority = 901,
+  priority = 401,
   config = function()
     vim.cmd("colorscheme catppuccin")
     require('catppuccin').setup({
-      transparent_background = true
+      -- transparent_background = true
     })
 
     function ColorMyPencils(color)
@@ -17,6 +17,6 @@ return {
       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end
 
-    ColorMyPencils()
+    -- ColorMyPencils()
   end
 }
