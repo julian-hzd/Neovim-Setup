@@ -1,5 +1,5 @@
 local config = function()
-  local theme = require("lualine.themes.catppuccin")
+  local theme = require("lualine.themes.rose-pine")
   theme.normal.c.bg = nil
   require('lualine').setup {
     options = {
@@ -11,7 +11,7 @@ local config = function()
     sections = {
       lualine_a = {
         {
-          'buffers'
+          -- 'buffers'
         }
       },
     }

@@ -29,4 +29,5 @@ end
 return {
   'ThePrimeagen/harpoon',
   keys = config,
+  requires = { { "nvim-lua/plenary.nvim" } }
 }

@@ -1,7 +1,7 @@
 return {
-  "EdenEast/nightfox.nvim",
+ "EdenEast/nightfox.nvim",
   lazy = false,
-  priority = 459,
+  priority = 159,
 	config = function()
 		vim.cmd("colorscheme nightfox")
     require('nightfox').setup({
@@ -17,7 +17,7 @@ return {
 
     end
 
-    -- ColorMyPencils()
+    ColorMyPencils()
 		end
 }
 

@@ -1,16 +1,15 @@
 return {
-  'folke/tokyonight.nvim',
+  "rebelot/kanagawa.nvim",
   lazy = false,
-  priority = 899,
-  opts = {},
+  priority = 139,
 	config = function()
-		vim.cmd("colorscheme tokyonight")
-    require('tokyonight').setup({
+		vim.cmd("colorscheme kanagawa")
+    require('kanagawa').setup({
       disable_background = true
     })
 
     function ColorMyPencils(color)
-      color = color or "tokyonight-moon"
+      color = color or "kanagawa-dragon"
       vim.cmd.colorscheme(color)
 
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -21,3 +20,4 @@ return {
     ColorMyPencils()
 		end
 }
+
