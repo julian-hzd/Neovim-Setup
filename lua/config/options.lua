@@ -25,7 +25,7 @@ opt.scrolloff = 8
 opt.signcolumn = 'yes'
 opt.completeopt = 'menuone,noinsert,noselect'
 opt.colorcolumn = '72'
-opt.termguicolors = true
+-- opt.termguicolors = true
 
 -- Behaviour
 opt.hidden = true
@@ -50,3 +50,4 @@ opt.encoding = 'UTF-8'
 opt.updatetime = 50
 
 -- vim.cmd("set showtabline=2")
+
