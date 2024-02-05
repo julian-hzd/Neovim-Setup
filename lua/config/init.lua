@@ -45,4 +45,3 @@ local opts = {
 }
 
 require('lazy').setup({ { import = plugins }, { import = lsp } }, opts)
-
