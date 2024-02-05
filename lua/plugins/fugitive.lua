@@ -10,13 +10,18 @@ return {
       vim.cmd.Git("add .")
     end, { desc = 'Git add .' })
 
+    vim.keymap.set("n", "<leader>gac", function()
+      vim.cmd.Git("add .")
+      vim.cmd.Git("commit")
+    end, { desc = 'Git add . + commit' })
+
     vim.keymap.set("n", "<leader>gc", function()
       vim.cmd.Git("commit")
     end, { desc = 'Git commit' })
 
     vim.keymap.set("n", "<leader>gp", function()
       vim.cmd.Git("push")
-    end, { desc = 'Git push' })
+    end, { desc = 'Git push ' })
   end
 
 }
