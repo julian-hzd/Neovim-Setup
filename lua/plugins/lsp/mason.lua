@@ -36,6 +36,7 @@ return {
         'black',
         'pylint',
         'eslint_d',
+        'gopls'
       },
     }
   end,

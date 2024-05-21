@@ -3,7 +3,7 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
---  Directory Navigation
+--  Nvim Tree
 keymap.set('n', '<leader>f', ':NvimTreeFocus<CR>', opts)
 keymap.set('n', '<leader>m', ':NvimTreeToggle<CR>', opts)
 
@@ -37,12 +37,9 @@ keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 keymap.set('n', 'J', 'mzJ`z')
 
--- Cursor stays in the middle
+-- Cursor stays in the middle when going half up/down a page
 keymap.set('n', '<C-d>', '<C-d>zz')
 keymap.set('n', '<C-u>', '<C-u>zz')
-
-keymap.set('n', 'n', 'nzzzv')
-keymap.set('n', 'N', 'Nzzzv')
 
 --  Paste without losing current paste register
 keymap.set('x', '<leader>p', '"_dP')

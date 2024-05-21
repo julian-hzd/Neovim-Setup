@@ -6,7 +6,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
-  lazy=false,
+  lazy = false,
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
@@ -72,24 +72,44 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- configure html server
-    lspconfig["html"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    -- configure lua server (with special settings)
+    -- lspconfig["lua_ls"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   settings = { -- custom settings for lua
+    --     Lua = {
+    --       -- make the language server recognize "vim" global
+    --       diagnostics = {
+    --         globals = { "vim" },
+    --       },
+    --       workspace = {
+    --         -- make language server aware of runtime files
+    --         library = {
+    --           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+    --           [vim.fn.stdpath("config") .. "/lua"] = true,
+    --         },
+    --       },
+    --     },
+    --   },
+    -- })
+    -- -- configure html server
+    -- lspconfig["html"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
 
     -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    -- lspconfig["tsserver"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
 
     -- configure css server
-    lspconfig["cssls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      filetypes = { "css" }
-    })
+    -- lspconfig["cssls"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   filetypes = { "css" }
+    -- })
 
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
@@ -109,29 +129,25 @@ return {
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = {"javascriptreact"}
+      filetypes = { "javascriptreact" }
 
     })
 
-    -- configure lua server (with special settings)
-    lspconfig["lua_ls"].setup({
+    -- configure Go server
+    lspconfig["gopls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = { -- custom settings for lua
-        Lua = {
-          -- make the language server recognize "vim" global
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            -- make language server aware of runtime files
-            library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
-            },
-          },
-        },
-      },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          }
+        }
+      }
     })
+
   end,
 }
