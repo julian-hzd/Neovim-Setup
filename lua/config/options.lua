@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+opt.conceallevel = 1
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -25,7 +27,7 @@ opt.scrolloff = 8
 opt.signcolumn = 'yes'
 opt.completeopt = 'menuone,noinsert,noselect'
 opt.colorcolumn = '72'
--- opt.termguicolors = true
+opt.termguicolors = true
 
 -- Behaviour
 opt.hidden = true

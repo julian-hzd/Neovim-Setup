@@ -7,7 +7,7 @@ return {
     vim.cmd("colorscheme rose-pine")
 
     require('rose-pine').setup({
-      transparent_background = true
+      transparent_background = false
     })
 
     function ColorMyPencils(color)
@@ -18,6 +18,6 @@ return {
       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end
 
-    ColorMyPencils()
+    -- ColorMyPencils()
   end
 }
